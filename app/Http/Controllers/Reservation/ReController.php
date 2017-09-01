@@ -22,7 +22,7 @@ class ReController extends Controller
 
         if( $v->fails())
         {
-            return $v->errors();
+            return response()->json($v->errors(), 422) ;
         }
         #check date overlap
 
