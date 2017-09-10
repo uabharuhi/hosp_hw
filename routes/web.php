@@ -21,8 +21,8 @@ Route::get('/gg',function(){
   return 'gg 3:0';
 });
 
-Route::get('/doctor/login','Doctor\LoginController@showLoginForm' );
-Route::post('/doctor/login','Doctor\LoginController@login');
+Route::get('/doctor/login','Doctor\LoginController@showLoginForm' )->name("doctor.login");
+Route::post('/doctor/login','Doctor\LoginController@login')->name("doctor.login");
 
 
 
@@ -32,9 +32,11 @@ Route::group( ['middleware' => 'auth:patient'], function() {
 } );
 
 Route::group( ['middleware' => 'auth:doctor'], function() {
-  Route::get('/doctor/logout','Doctor\LoginController@logout' );
-  Route::get('/doctor/home','Doctor\DoctorController@home' );
-} );
+  $group_name = 'doctor';
+  Route::get('/doctor/logout','Doctor\LoginController@logout' )->name("$group_name.logout");
+  Route::get('/doctor/home','Doctor\DoctorController@home')->name("$group_name.home");
+  Route::get('/doctor/reservations','Doctor\DoctorController@reservations' )->name("$group_name.reservations");
+});
 
 Route::get('/patient/register','Patient\RegisterController@showRegistrationForm' );
 Route::post('/patient/register','Patient\RegisterController@register' );

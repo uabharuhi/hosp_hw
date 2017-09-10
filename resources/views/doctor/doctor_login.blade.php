@@ -1,39 +1,52 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Site</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
-<link href="" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.app')
+@push('styles')
+<link href="{{ asset('css/doctor_login.css') }}" rel="stylesheet">
+@endpush
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
+@section('content')
 <div class="flash-message">
       @if(Session::has('login_failed'))
       <p class="">{{ Session::get('login_failed') }} </p>
       @endif
 </div> <!-- end .flash-message -->
-Doctor Login
-{!! Form::open(["url"=>"/doctor/login", "method"=>"post"] ) !!}
- {{ csrf_field() }}
-ssn:<br>
-  <input type="text" name="ssn" value="{{ old('ssn') }}">
-  <br>
-password:<br>
-  <input type="password" name="password" value="">
-  <br><br>
-  <input type="submit" value="Submit">
-{!! Form::close() !!}
-</body>
-</html>
+<div class="container">
+<div class="login-form-wrapper row">
+<div class="login-form col m12">
+
+  <div class="login-form-title section">
+  登入
+  </div>
+  
+
+
+     {!! Form::open(["url"=>"/doctor/login", "method"=>"post",'class' => 'col-12'] ) !!}
+    {{ csrf_field() }}
+  
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_prefix" name="ssn" type="text" class="validate" value="{{ old('ssn') }}" placeholder="帳號">
+  
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">https</i>
+           <input type="password" name="password" value=""  class="validate"  placeholder="密碼">
+         
+        </div>
+
+
+    <div class="row">
+        <p class="right-align submit-wrapper">
+        <button class="btn waves-effect waves-light submit-btn" type="submit" name="action">確認
+        </button>
+        </p>
+    </div>
+   {!! Form::close() !!}
+  </div>
+
+</div>
+
+</div>
+@endsection
+
+<!--#3399CC #67B8DE #91C9E8 #B4DCED #E8F8FF>

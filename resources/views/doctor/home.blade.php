@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Site</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
-<link href="" rel="stylesheet">
-</head>
-<body>
-Doctor XXXXXX
-this is home ,{{ Auth::guard('doctor')->user()->name}}
-</body>
-</html>
+@extends('layouts.app')
+@push('styles')
+<link href="{{ asset('css/doctor_home.css') }}" rel="stylesheet">
+@endpush
+@section('content')
+<div id="home_content" class="center-align">
+<div class="section">
+<h1 style="margin-bottom:5px;">{{Auth::guard('doctor')->user()->ssn}}</h1>
+<span class="small  grey-text">歡迎使用本系統</span>
+</div>
+<p   style="font-size:20px;">
+您有<span class="count">{{$rn}}</span>個預約
+</p>
+</div>
+@endsection

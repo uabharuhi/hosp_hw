@@ -30,12 +30,11 @@ class ReController extends Controller
 
         $hour1 = $request->input('hour1');
         $hour2 = $request->input('hour2');
-
+        $output = new ConsoleOutput();
         foreach ($resvs  as $r) {
-            if(($r->hour1<= $hour1 and  $hour1<= $r->hour2) or
-                ($r->hour1<= $hour2 and  $hour2<= $r->hour2)
-            )
+            if(!(( $r->hour1>=$hour2 ) or($r->hour2<= $hour1) ) )
             {
+
                 return Response::json(
                     array('message' => 'the time is occupied,modify your hour1 and hour2'), 422
                 );

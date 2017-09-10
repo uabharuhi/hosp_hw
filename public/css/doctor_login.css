@@ -1,0 +1,25 @@
+
+#app{
+    background-color:#f4f4f4;
+}
+
+#contet-wrapper{
+    background-color:#f4f4f4;
+}
+
+.login-form-wrapper{
+
+}
+.submit-wrapper{
+    margin-right:10px;
+}
+
+.login-form-title{
+    color:gray;
+    font-size: 30px; 
+    margin-left: 20px;
+}
+.submit-btn{
+    background-color: #3399CC;
+
+}

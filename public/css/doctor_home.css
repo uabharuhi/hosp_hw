@@ -1,0 +1,27 @@
+
+/*#3399CC #67B8DE #91C9E8 #B4DCED #E8F8FF*/
+
+
+.count{
+    display: inline-block;
+    background-color:  #67B8DE;
+    border-radius: 2px;
+    min-width: 1.5rem;
+    text-align: center;
+    margin: 0 6px;
+    padding:  1px 4px;
+    box-sizing: border-box;
+    line-height: 1em;
+    color:white;
+
+}
+/*
+line-height垂直居中性
+文字的top-line到baseline的高度
+line-height 定義了文字的上下(top-line以上和bottom-line以下的高度),
+所以單行可以垂直居中
+
+*.
+    
+
+/*#3399CC #67B8DE #91C9E8 #B4DCED #E8F8FF*/

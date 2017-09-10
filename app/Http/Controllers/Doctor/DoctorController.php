@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Doctor;
 
+use App\Reservation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,6 +17,12 @@ class DoctorController extends Controller
    protected $redirectTo = '/doctor/login';
 
     public function home(Request $request){
-      return View::make('doctor.home');
+        $a = Reservation::all();
+        return View::make('doctor.home',['rn'=>count($a)]);
+    }
+
+    public function reservations(Request $request){
+        $all = Reservation::all()->sortByDesc("date");
+        return View::make('doctor.reservations',['reservations'=>$all]) ;
     }
 }
